@@ -1,0 +1,91 @@
+CONSULTA DE BONOS Y PUNTUALIDAD — LIPU GUADALAJARA
+====================================================
+
+QUÉ HACE
+--------
+Cada semana subes UN solo Excel con todas sus pestañas originales:
+BONOS, RENDIMIENTO, DMAS, PUNTUALIDAD, CONSULTA y ACUMULADO.
+
+La app:
+- Reproduce los mismos campos que la pestaña "CONSULTA" (siniestros,
+  quejas, score, bonos, rendimiento y totales), tomados de BONOS y
+  RENDIMIENTO.
+- Busca también en DMAS y PUNTUALIDAD por número de nómina.
+- Muestra lo que el trabajador ganó oficialmente (pestaña ACUMULADO),
+  agrupado por semana.
+- Si la nómina buscada NO aparece ni en BONOS ni en RENDIMIENTO, la
+  búsqueda recurre automáticamente a ACUMULADO.
+- Puedes buscar por NOMBRE además de por número de nómina.
+- Consulta MÚLTIPLE: revisa varias nóminas de un jalón.
+- Pestaña de TENDENCIA: cómo ha variado lo pagado semana a semana.
+- Botón para DESCARGAR cualquier consulta en Excel.
+- VALIDA automáticamente el archivo al subirlo (pestañas/columnas).
+- Botón de RESPALDO de toda la información guardada, en un clic.
+- Permite ELIMINAR, a futuro, cualquier semana completa ya cargada.
+- Todos los valores numéricos se muestran con 2 decimales.
+
+REQUISITOS (solo la primera vez)
+---------------------------------
+1. Tener Python instalado (https://www.python.org/downloads/), marcando
+   la opción "Add Python to PATH" durante la instalación.
+2. Dar doble clic a "Instalar_Requisitos.bat" y esperar a que termine.
+
+USO SEMANAL
+-----------
+1. Doble clic en "Ejecutar_ConsultaBonos.bat".
+   Se abrirá una ventana del navegador con la aplicación.
+2. En el panel izquierdo, sube el Excel completo de la semana y pulsa
+   "Confirmar carga (archiva la semana anterior)".
+   - El archivo que estaba activo se guarda automáticamente en la
+     carpeta /historico con la fecha y hora de reemplazo.
+   - La pestaña ACUMULADO de ese mismo archivo se guarda por semana
+     (usa su propia columna "periodo", ej. "S34").
+   - Al terminar, verás un resultado de VALIDACIÓN en el panel
+     izquierdo (correcto / revisar / falta, por cada pestaña y
+     columna esperada), para detectar de inmediato si algo cambió en
+     el formato del Excel.
+3. En la pestaña "🔎 Consulta individual", escribe el número de
+   nómina O el nombre del trabajador (si hay varias coincidencias,
+   elige de una lista). Verás CONSULTA, DMAS, PUNTUALIDAD y
+   ACUMULADO, y un botón para descargar todo en un Excel.
+4. En "📋 Consulta múltiple", pega varios números de nómina (uno por
+   línea o separados por coma) y pulsa "Buscar todas" para ver un
+   resumen de todos en una tabla descargable.
+5. En "📈 Tendencia", escribe una nómina para ver una gráfica de lo
+   que ha ganado semana a semana (según las semanas de ACUMULADO
+   guardadas).
+6. Para cerrar, cierra la ventana del navegador y la ventana negra
+   (consola) que quedó abierta.
+
+ELIMINAR UNA SEMANA COMPLETA
+------------------------------
+En el panel izquierdo, abre "Eliminar una semana completa". Ahí
+puedes borrar:
+  - Una semana guardada del ACUMULADO (nómina oficial), o
+  - Un archivo semanal archivado (BONOS/DMAS/PUNTUALIDAD).
+Se pide una casilla de confirmación antes de eliminar, porque la
+acción no se puede deshacer.
+
+RESPALDO
+--------
+En el panel izquierdo, botón "Generar respaldo completo (.zip)" y
+luego "Descargar respaldo". Guarda esa copia en un USB o en la nube
+(Drive, OneDrive) de vez en cuando, por si la computadora falla.
+
+CARPETAS QUE SE CREAN SOLAS
+----------------------------
+- /datos                        -> archivo Excel activo (actual.xlsx)
+- /historico                    -> cada archivo semanal reemplazado, con fecha
+- /datos/acumulado_por_semana   -> un CSV por cada semana de ACUMULADO
+
+NOTAS
+-----
+- No borres ni muevas manualmente los archivos dentro de /datos o
+  /historico; usa siempre los botones de la app.
+- Los nombres de las pestañas del Excel deben seguir siendo
+  exactamente: BONOS, RENDIMIENTO, DMAS, PUNTUALIDAD y ACUMULADO.
+- Esta carpeta contiene información salarial real de los
+  trabajadores. Evita compartirla o dejarla en una computadora de uso
+  común; considera restringir el acceso a la carpeta solo a ti.
+- Este resultado es informativo; para el recibo de nómina oficial hay
+  que solicitarlo en las oficinas de Transportes LIPU.
