@@ -382,8 +382,15 @@ def buscar_acumulado_por_nomina(nomina) -> pd.DataFrame:
 
 
 def mostrar_tabla_acumulado(df_acum: pd.DataFrame):
-    """Renderiza el detalle de ACUMULADO agrupado por semana, con totales."""
-    for periodo in sorted(df_acum["PERIODO"].astype(str).unique(), key=clave_orden_periodo):
+    """Renderiza el detalle de ACUMULADO agrupado por semana, con la más reciente primero."""
+    # Orden descendente: la semana más reciente aparece arriba.
+    periodos = sorted(
+        df_acum["PERIODO"].astype(str).unique(),
+        key=clave_orden_periodo,
+        reverse=True,
+    )
+
+    for periodo in periodos:
         sub = df_acum[df_acum["PERIODO"].astype(str) == periodo][
             ["AGRUPADOR", "CONCEPTO", "IMPORTE"]
         ].copy()
